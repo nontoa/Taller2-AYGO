@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Web App automatically deployed to Aws
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple web application was created in order to deploy it in 3 differen ec2 instances.
 
-## Available Scripts
+## Description of the aws-script-create.sh file
 
-In the project directory, you can run:
+Running the file will do the following:
+- Create the folder ```/build``` where will be the web application content.
+- Create a key pair on AWS and dowload the key pair .pem in your local machine.
+- Create the security group on AWS.
+- Add the appropriate permissions for the security group.
+- Create 3 ec2 instances on AWS.
+- Copy the ```/build``` folder to each instance.
+- Install npm and run the web application in each instance.
+- You can access to 3 different urls to the web application.
 
-### `npm start`
+> In the console will be showed the urls to access to the web application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> ⚠️ **If you want to delete the instances, security group and key pair you have to write *delete* after the execution when the message is showed**: Be very careful here!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to deploy it on AWS:
 
-### `npm test`
+- First you have to clone this repository in your local machine.
+- You have to configure your AWS account in your local machine with the command ```aws configure ```.
+- Finally you have to execute the next script ```./aws-script-create.sh ``` in order to create the instances and deploy the wep application on AWS.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Example doing the exercise:
 
-### `npm run build`
+### The repository must be in our local machine:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="resources/image1.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### AWS configuration must be done:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="resources/image2.png">
 
-### `npm run eject`
+### Execute the script:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- ### The script starts creating the build folder, the key pairs, the security group and the permissions associated:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="resources/image3.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- ### Then create the 3 ec2 instances and copy the build folder to each instance:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img src="resources/image4.png">
 
-## Learn More
+- ### Then install npm in each instance:
+    
+<img src="resources/image5.png">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ### Finally run the web application in each instance:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="resources/image6.png">
 
-### Code Splitting
+- ### We can open the url's and see the web application:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### First URL:
 
-### Analyzing the Bundle Size
+<img src="resources/image7.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Second URL:
 
-### Making a Progressive Web App
+<img src="resources/image8.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Third URL:
 
-### Advanced Configuration
+<img src="resources/image9.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- ### Also we can see in the AWS console that the instances, security group and key pair were created:
 
-### Deployment
+<img src="resources/image10.png">
+<img src="resources/image11.png">
+<img src="resources/image12.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- ### At the end we can write delete to remove the instances, security group and key pairs that were created previously:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="resources/image13.png">
